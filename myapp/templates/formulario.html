@@ -1,0 +1,262 @@
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulários</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Updated styles for the blue bar */
+        .blue-bar {
+            background-color: #006666; /* Darker blue color */
+            color: #fff; /* White text color */
+            padding: 5px; /* Reduced padding */
+            text-align: center;
+        }
+
+        h1 {
+            color: #006666; /* Darker blue color */
+            text-align: center;
+        }
+
+        h3 {
+            color: #006666;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button[type="submit"] {
+            background-color: #006666; /* Darker blue color */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #004d4d; /* Even darker shade on hover */
+        }
+
+        p1 {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+     
+    <div class="blue-bar">
+        <h1>IDP</h1>
+    </div>
+
+ 
+    <h1 style="color: #006666;">Formulário</h1>
+    <form method="post">
+        {% csrf_token %}
+        <h3>Aluno</h3> 
+        <h3><p1> 
+            O uso dos meus dados pessoais fornecidos neste formulário serão utilizados para um projeto de pesquisa sobre evasão universitária.
+            Os dados serão utlizados em conformidade com a Lei Geral de Proteção de Dados (LGPD). 
+            Estou ciente de que meus dados serão tratados único e exclusivamente neste projeto de pesquisa e que meu consentimento pode ser revogado 
+            a qualquer momento mediante solicitação 6198538-8889 .</p1></h3>
+            
+        <h4><p2> Autorizo a buscar os meus dados pessoais nas bases de dados do IDP<h4><p2>
+
+        {{ aluno_form.as_p }}
+        <h1>Responsável Financeiro</h1>
+        {{ responsavel_form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulários</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Updated styles for the blue bar */
+        .blue-bar {
+            background-color: #006666; /* Darker blue color */
+            color: #fff; /* White text color */
+            padding: 5px; /* Reduced padding */
+            text-align: center;
+        }
+
+        h1 {
+            color: #006666; /* Darker blue color */
+            text-align: center;
+        }
+
+        h3 {
+            color: #006666;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        /* Adjusted width for "Nome" and "Data de Nascimento" input fields */
+        input[type="text"][name="{{ aluno_form.Nome.name }}"],
+        input[type="text"][name="{{ aluno_form.Data_Nascimento.name }}"] {
+            width: 70%;
+        }
+
+        button[type="submit"] {
+            background-color: #006666; /* Darker blue color */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #004d4d; /* Even darker shade on hover */
+        }
+
+        p1 {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .bottom-button {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        /* Styling for the phone number */
+        .phone-number {
+            color: #006666; /* Darker blue color */
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Updated blue bar with "IDP" -->
+    <div class="blue-bar">
+        <h1>IDP</h1>
+    </div>
+
+    <!-- Centralized Form -->
+    <h1 style="color: #006666;">Formulário</h1>
+    <form method="post">
+        {% csrf_token %}
+
+        <h1>ALUNO</h1>
+        <h3><p1> 
+            O uso dos meus dados pessoais fornecidos neste formulário serão utilizados para um projeto de pesquisa sobre evasão universitária.
+            Os dados serão utilizados em conformidade com a Lei Geral de Proteção de Dados (LGPD). 
+            Estou ciente de que meus dados serão tratados único e exclusivamente neste projeto de pesquisa e que meu consentimento pode ser revogado 
+            a qualquer momento mediante solicitação <span class="phone-number">(61) 98538-8889</span>.</p1></h3>
+          
+
+        
+<label for="{{ aluno_form.Nome.id_for_label }}">Nome:</label>
+<!--{{ aluno_form.Nome }}<br> -->
+
+<input type="text" name="{{ aluno_form.Nome.name }}" id="{{ aluno_form.Nome.id_for_label }}" style="width: 70%;"><br>
+
+<label for="{{ aluno_form.Matrícula.id_for_label }}">Matrícula:</label>
+{{ aluno_form.Matrícula }}<br>
+
+<label for="{{ aluno_form.Sexo.id_for_label }}" style="margin-top: 10px;">Sexo:</label>
+{{ aluno_form.Sexo }}<br><br>
+
+<label for="{{ aluno_form.Data_Nascimento.id_for_label }}">Data de Nascimento:</label>
+{{ aluno_form.Data_Nascimento }}<br>
+
+<label for="{{ aluno_form.Renda_Própria.id_for_label }}">Renda Própria:</label>
+{{ aluno_form.Renda_Própria }}<br>
+
+<label for="{{ aluno_form.Mora_Com_Pais.id_for_label }}" style="margin-top: 10px;">Mora com Pais:</label>
+{{ aluno_form.Mora_Com_Pais }}<br style="margin-top: 10px;">
+
+<label for="{{ aluno_form.Trabalha.id_for_label }}" style="margin-top: 10px;">Trabalha:</label>
+{{ aluno_form.Trabalha }}<br>
+
+<label for="{{ aluno_form.Quantidade_Filhos.id_for_label }}" style="margin-top: 10px;">Quantidade de Filhos:</label>
+{{ aluno_form.Quantidade_Filhos }}<br>
+
+<label for="{{ aluno_form.Raca.id_for_label }}" style="margin-top: 10px;">Raça:</label>
+{{ aluno_form.Raca }}<br><br>
+
+<label for="{{ aluno_form.Estado_Civil.id_for_label }}">Estado Civil:</label>
+{{ aluno_form.Estado_Civil }}<br>
+
+<h1>Responsável Financeiro</h1>
+<label for="{{ responsavel_form.Range_salarial.id_for_label }}">Faixa Salarial:</label>
+{{ responsavel_form.Range_salarial }}<br><br>
+
+<label for="{{ responsavel_form.Escolaridade.id_for_label }}">Escolaridade:</label>
+{{ responsavel_form.Escolaridade }}<br>
+<h4><p2> Autorizo a buscar os meus dados pessoais nas bases de dados do IDP</p2></h4>
+{{ aluno_form.Autorizo }}
+<div class="bottom-button">
+    
+    <button type="submit">Enviar</button>
+</div>

@@ -80,7 +80,7 @@ class Aluno(models.Model):
     Responsavel = models.ForeignKey(Responsavel, on_delete=models.CASCADE, null=True, blank=True)
     
     Sexo = models.CharField(max_length=1, choices=SEXO_CHOICES, default='M')
-    Data_Nascimento = models.DateField(default=datetime(2000, 1, 1))
+    #Data_Nascimento = models.DateField(null=True, blank=True)#default=datetime(2000, 1, 1)
 
     Renda_Própria = models.CharField(max_length=25, choices=FAIXAS_SALARIAIS, default='0')
     Mora_Com_Pais = models.BooleanField(default=False)

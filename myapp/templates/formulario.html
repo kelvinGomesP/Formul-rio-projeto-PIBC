@@ -102,6 +102,7 @@
 </html>
 
 -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -197,13 +198,14 @@
     </style>
 </head>
 <body>
+
     <!-- Updated blue bar with "IDP" -->
     <div class="blue-bar">
         <h1>IDP</h1>
     </div>
 
     <!-- Centralized Form -->
-    <h1 style="color: #006666;">Formulário</h1>
+   <h1 style="color: #006666;">Formulário</h1>
     <form method="post">
         {% csrf_token %}
 
@@ -254,9 +256,8 @@
 
 <label for="{{ responsavel_form.Escolaridade.id_for_label }}">Escolaridade:</label>
 {{ responsavel_form.Escolaridade }}<br>
-<h4><p2> Autorizo a buscar os meus dados pessoais nas bases de dados do IDP</p2></h4>
-{{ aluno_form.Autorizo }}
-<div class="bottom-button">
+<h4><p2> Autorizo a buscar os meus dados pessoais nas bases de dados do IDP {{ aluno_form.Autorizo }}<div class="bottom-button"></p2></h4>
+<!--{{ aluno_form.Autorizo }}<div class="bottom-button">-->
     
     <button type="submit">Enviar</button>
 </div>

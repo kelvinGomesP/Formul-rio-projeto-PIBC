@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
-from .forms import  AlunoForm, ResponsavelForm
-from .models import Aluno, Responsavel
+from .forms import  AlunoForm
+from .models import Aluno
 
 
 # Create your views here.
-
+'''
 def formulario(request):
     if request.method == 'POST':
         aluno_form = AlunoForm(request.POST)
@@ -34,5 +34,28 @@ def formulario(request):
         'responsavel_form': responsavel_form,
     })
     
+def pagina_de_sucesso(request):
+    return render(request, 'pagina_de_sucesso.html')
+    
+    '''
+    
+    
+def formulario(request):
+    if request.method == 'POST':
+        aluno_form = AlunoForm(request.POST)
+
+        if aluno_form.is_valid():
+            # Save the Aluno object
+            aluno = aluno_form.save()
+
+            # Redirect to a success page or perform other actions as needed
+            return redirect('pagina_de_sucesso')
+    else:
+        aluno_form = AlunoForm()
+
+    return render(request, 'formularioidp.html', {
+        'aluno_form': aluno_form,
+    })
+
 def pagina_de_sucesso(request):
     return render(request, 'pagina_de_sucesso.html')
